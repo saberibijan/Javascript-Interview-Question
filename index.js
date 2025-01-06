@@ -126,7 +126,7 @@
 // let numbers = [1,2,25,5,0,4,23]
 
 // let maxNumber = numbers.reduce((a,b) => {
-// if(a> b){
+// if(a > b){
 //   return a
 // }else{
 //   return b
@@ -287,7 +287,7 @@
 //   return numbers;
 // }
 
-// const result = generateNumbers(10, 50);
+// const result = generateNumbers(5, 20);
 // console.log(result);
 
 ////////////End of generate N number smaller than M    ////////////
@@ -296,6 +296,8 @@
 
 // let numbers = [1,2,3,4,5,6,7,8,9,10]
 // let alphabet = ["a","b","c","d","e"]
+
+//reduceright
 
 // const reverse = (arr)=>{
 //   let reversArray = [];
@@ -309,16 +311,33 @@
 // console.log(reverse(numbers));
 // console.log(reverse(alphabet));
 
+// way two
+
+// const reversArray = (arr)=>{
+//     let copyarray = [...arr]
+//     let reverse = []
+
+//     for(let i = 0 ; i < arr.length ; i++){
+//         reverse.push(copyarray.pop())
+//     }
+
+//     return reverse
+// }
+// console.log(reversArray(alphabet));
+
 ////////////End of reverse an array without using reverse method    ////////////
 
 //////////// remove duplicate numbers from an array =>
 
 // let numbers = [1,1,1,1, 2,3,3,4,1,2,3,4];
 
-// let uniq = [...new Set(array)];
+//reduce
+
+
+// let uniq = [...new Set(numbers)];
 // console.log(uniq);
 
-// way two
+// // way two
 
 //   function removeDuplicate(arr){
 //     let uniqArray = []
@@ -337,7 +356,9 @@
 
 //////////// which number has most occurance =>
 
-    let numbers = [1,1,1,1,2,3,3,4,1,2,3,4];
+    // let numbers = [1,1,1,1,2,3,3,4,1,2,3,4];
+
+    //forEach and map
 
     // function mostFrequent(arr) {
     //   let frequency = {};
@@ -383,4 +404,95 @@
     // console.log(itemRepeatCount(numbers));
     
     ////////////End of duplicate occurance     ////////////
+
+
+    ////////////Write a function that, when given a negative index, starts displaying from the last index of the array =>
+
+
+    // function arrayIndex(arr, index) {
+//   if (index < 0) {
+//       return arr[arr.length + index];
+//   } else {
+//       return arr[index];
+//   }
+// }
+
+// let arr = [1, 2, 3, 4];
+// console.log(arrayIndex(arr, -1));  
+// console.log(arrayIndex(arr, -2));  
+// console.log(arrayIndex(arr, -3));  
+// console.log(arrayIndex(arr, -4));  
+
+
+////////////End of Write a function that, when given a negative index, starts displaying from the last index of the array ////////////
+
+
+
+//////////// Explain recursive function with example =>
+
+//   function factorial(n) {
+    
+//     if (n === 0 || n === 1) {
+//         return 1;
+//     } else {
+//         return n * factorial(n - 1);
+//     }
+// }
+
+// console.log(factorial(5)); 
+
+
+// const fibonachi = (n)=>{
+//   if(n === 1 || n === 2){
+//     return 1
+//   }
+
+//   return fibonachi(n-1) + fibonachi(n -2)
+// }
+
+// console.log(fibonachi(5));
+
+
+////////////End of Explain recursive function with example ////////////
+
+
+//////////// write a function for calculate invoice for given basket =>
+
+// const products = [
+//   { id: 1, name: 'tv', price: 10000 },
+//   { id: 2, name: 'mobile', price: 4000, discount: 1000 },
+//   { id: 3, name: 'pc', price: 25000, discount: '5' },
+//   { id: 4, name: 'mac', price: 30000, discount: '10' },
+// ];
+
+// const basket = [
+//   { id: 1, pId: 2, qty: 3 },
+//   { id: 2, pId: 4, qty: 2 },
+//   { id: 3, pId: 3, qty: -1 },
+// ];
+
+
+
+// const generateInvoice = (products, basket)=>{
+//   let total = 0;
+
+//   basket.forEach(item => {
+//     let product = products.find(product => product.id == item.pId);
+//     if(product){
+//       let itemPrice = product.price;
+//       if(product.discount){
+//         itemPrice -= typeof product.discount === 'number' ? product.discount : (product.price * product.discount) / 100
+//       }
+
+//       const itemTotal = itemPrice * item.qty;
+//       total += itemTotal
+//     }
+//   })
+//   return total
+// }
+
+
+// console.log(generateInvoice(products, basket));
+
+////////////End of write a function for calculate invoice for given basket ////////////
     
